@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+echo "Starting Transcoder"
+exec \
+  s6-setuidgid abc python /config/app/transcoder.py

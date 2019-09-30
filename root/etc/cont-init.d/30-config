@@ -1,0 +1,23 @@
+#!/usr/bin/with-contenv bash
+
+# install defaults if needed
+echo "**** Checking on conf.py ****"
+if [ ! -f "/config/conf.py" ]; then \
+  cp "/defaults/conf.py" "/config/"
+fi
+
+echo "**** Checking on transcoder.py ****"
+if [ ! -f "/config/app/transcoder.py" ] ; then \
+  cp "/defaults/transcoder.py" "/config/app/"
+fi
+
+echo "**** Applying permissions ****"
+# permissions
+chown -R -v \
+  abc:abc \
+  /transcoder \
+  /config
+
+echo "**** Changing perms on /transcoder ****"
+chmod 777 -R -v \
+  /transcoder
