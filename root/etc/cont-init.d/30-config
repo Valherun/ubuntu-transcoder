@@ -7,6 +7,10 @@ if [ ! -f "/config/conf.py" ]; then \
 fi
 
 echo "**** Checking on transcoder.py ****"
+if [ ! -d "/config/app/" ]; then \
+  mkdir -p -v "/config/app/"
+fi
+
 if [ ! -f "/config/app/transcoder.py" ] ; then \
   cp "/defaults/transcoder.py" "/config/app/"
 fi
@@ -20,4 +24,5 @@ chown -R -v \
 
 echo "**** Changing perms on /transcoder ****"
 chmod 777 -R -v \
-  /transcoder
+  /transcoder/ \
+  /config/

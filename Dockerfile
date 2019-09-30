@@ -35,12 +35,7 @@ RUN \
     /var/tmp/* && \
   echo "** Creating Required Directories **" && \
   mkdir -p \
-    /config/app \
-    /transcoder \
-    /transcoder/work \
-    /transcoder/output \
-    /transcoder/input \
-    /transcoder/completed && \
+     /transcoder && \
   gem install video_transcoding
   
   COPY root/ /
